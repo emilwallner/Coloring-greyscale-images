@@ -1,16 +1,12 @@
 # Deep Coloring
 
 ## Todo
+- Alpa-version ✅
+- Beta-version ✅
+- Full-version
 
-### Images
-- Download images
-- Resize images
-- Folder structure 
-- Create black and white images 
-- Folder for training, testing and validating images 
-
-### Neural Network 
-- Create Res-Net
+### Full-version 
+- Create Res-Inception
 - Add pre-trained weights
 - Add fusion layer
 - Train the neural network
