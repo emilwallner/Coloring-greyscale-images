@@ -1,2 +1,1 @@
-git clone https://github.com/fchollet/keras.git
-python keras/setup.py install --user
+git clone https://github.com/fchollet/keras.git && cd keras && python setup.py install --user
