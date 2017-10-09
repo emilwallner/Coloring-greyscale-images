@@ -20,8 +20,8 @@ import tensorflow as tf
 
 # Get images
 X = []
-for filename in os.listdir('images/Test/'):
-    X.append(img_to_array(load_img('images/Test/'+filename)))
+for filename in os.listdir('/data/images/Train/'):
+    X.append(img_to_array(load_img('/data/images/Train/'+filename)))
 X = np.array(X, dtype=float)
 Xtrain = 1.0/255*X
 
