@@ -18,6 +18,7 @@ I was fascinated by Amir’s neural network, so I reproduced it and documented t
 
 ## **Deploying the code on FloydHub**
 [![Run on FloydHub](https://static.floydhub.com/button/button.svg)](https://floydhub.com/run?template=https://github.com/floydhub/colornet-template)
+
 If you are new to FloydHub, do their [2-min installation](https://www.floydhub.com/), check my [5-min video tutorial](https://www.youtube.com/watch?v=byLQ9kgjTdQ&t=6s) or my [step-to-step guide](https://blog.floydhub.com/my-first-weekend-of-deep-learning/) - it’s the best (and easiest) way to train deep learning models on cloud GPUs.
 
 Once FloydHub is installed, use the following commands: 
