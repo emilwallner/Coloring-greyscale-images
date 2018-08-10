@@ -2,7 +2,7 @@
 
 [![Paypal Donation](https://img.shields.io/badge/%E2%98%95%EF%B8%8F%20Flat%20white-Donate%20%245-brightgreen.svg)](https://www.paypal.me/EmilWallner)
 [![Paypal Donation](https://img.shields.io/badge/%F0%9F%8D%BB%20IPA-Donate%20%249-orange.svg)](https://www.paypal.me/EmilWallner)
-[![Run on FloydHub](https://static.floydhub.com/button/button.svg)](https://floydhub.com/run?template=https://github.com/floydhub/colornet-template)
+[![Run on FH](https://img.shields.io/badge/Run%20on-FloydHub-blue.svg)](https://floydhub.com/run?template=https://github.com/floydhub/colornet-template)
 
 This is the code for my article ["Coloring B&W portraits with neural networks"](https://blog.floydhub.com/colorizing-b&w-photos-with-neural-networks/)
 
@@ -17,7 +17,7 @@ I was fascinated by Amir’s neural network, so I reproduced it and documented t
 
 
 ## **Deploying the code on FloydHub**
-
+[![Run on FloydHub](https://static.floydhub.com/button/button.svg)](https://floydhub.com/run?template=https://github.com/floydhub/colornet-template)
 If you are new to FloydHub, do their [2-min installation](https://www.floydhub.com/), check my [5-min video tutorial](https://www.youtube.com/watch?v=byLQ9kgjTdQ&t=6s) or my [step-to-step guide](https://blog.floydhub.com/my-first-weekend-of-deep-learning/) - it’s the best (and easiest) way to train deep learning models on cloud GPUs.
 
 Once FloydHub is installed, use the following commands: 
