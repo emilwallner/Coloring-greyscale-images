@@ -20,38 +20,3 @@ I was fascinated by Amir’s neural network, so I reproduced it and documented t
 [![Run on FloydHub](https://static.floydhub.com/button/button.svg)](https://floydhub.com/run?template=https://github.com/floydhub/colornet-template)
 
 Click this button to open a [Workspace](https://blog.floydhub.com/workspaces/) on [FloydHub](https://www.floydhub.com/?utm_medium=readme&utm_source=colornet&utm_campaign=aug_2018) where you will find the same environment and dataset used for the *Full version*. You can also find the trained models for [Serving](https://github.com/floydhub/colornet-template#serve-an-interactive-web-page-for-your-own-model).
-
-If you are new to FloydHub, do their [2-min installation](https://www.floydhub.com/), check my [5-min video tutorial](https://www.youtube.com/watch?v=byLQ9kgjTdQ&t=6s) or my [step-to-step guide](https://blog.floydhub.com/my-first-weekend-of-deep-learning/) - it’s the best (and easiest) way to train deep learning models on cloud GPUs.
-
-Once FloydHub is installed, use the following commands: 
-
-
-    git clone https://github.com/emilwallner/Coloring-greyscale-images-in-Keras
-
-Open the folder and initiate FloydHub.
-
-
-    cd Coloring-greyscale-images-in-Keras/floydhub
-    floyd init colornet
-
-The FloydHub web dashboard will open in your browser, and you will be prompted to create a new FloydHub project called `colornet`. Once that's done, go back to your terminal and run the same `init` command.
-
-
-    floyd init colornet
-
-Okay, let's run our job:
-
-
-    floyd run --data emilwallner/datasets/colornet/2:data --mode jupyter --tensorboard
-
-Some quick notes about our job: 
-
-
-- We mounted a public dataset on FloydHub (which I've already uploaded) at the `data` directory with `--data` `emilwallner/datasets/colornet/2:data`. You can explore and use this dataset (and many other public datasets) by viewing it on [FloydHub](https://www.floydhub.com/emilwallner/datasets/cifar-10/1)
-- We enabled Tensorboard with `--tensorboard`
-- We ran the job in Jupyter Notebook mode with `--mode jupyter`
-- If you have GPU credit, you can also add the GPU flag `--gpu` to your command - this will make it ~50x faster
-
-Go to your the Jupyter notebook under the Jobs tab on the FloydHub website, click on the Jupyter Notebook link, and navigate to this file: `floydhub/Alpha version/alpha_version.ipynb`. Open it and click shift+enter on all the cells. It's the same process for the beta_version.ipynb and the full_version.ipynb.
-
-Gradually increase the epoch value to get a feel for how the neural network learns.  
