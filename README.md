@@ -1,7 +1,5 @@
 # Coloring B&W portraits with neural networks.
 
-[![Paypal Donation](https://img.shields.io/badge/%E2%98%95%EF%B8%8F%20Flat%20white-Donate%20%245-brightgreen.svg)](https://www.paypal.me/EmilWallner)
-[![Paypal Donation](https://img.shields.io/badge/%F0%9F%8D%BB%20IPA-Donate%20%249-orange.svg)](https://www.paypal.me/EmilWallner)
 [![Run on FH](https://img.shields.io/badge/Run%20on-FloydHub-blue.svg)](https://floydhub.com/run?template=https://github.com/floydhub/colornet-template)
 
 This is the code for my article ["Coloring B&W portraits with neural networks"](https://blog.floydhub.com/colorizing-b&w-photos-with-neural-networks/)
@@ -20,3 +18,5 @@ I was fascinated by Amir’s neural network, so I reproduced it and documented t
 [![Run on FloydHub](https://static.floydhub.com/button/button.svg)](https://floydhub.com/run?template=https://github.com/floydhub/colornet-template)
 
 Click this button to open a [Workspace](https://blog.floydhub.com/workspaces/) on [FloydHub](https://www.floydhub.com/?utm_medium=readme&utm_source=colornet&utm_campaign=aug_2018) where you will find the same environment and dataset used for the *Full version*. You can also find the trained models for [Serving](https://github.com/floydhub/colornet-template#serve-an-interactive-web-page-for-your-own-model).
+
+Thanks to IBM for donating computing power through their PowerAI platform
