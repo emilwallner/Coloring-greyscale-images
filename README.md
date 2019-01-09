@@ -12,11 +12,13 @@ I was fascinated by Amir’s neural network, so I reproduced it and documented t
 
 
 
-
+**Note:** If you want better results, I'd reccommend using a more modern approach such as GANs. [DeOldify is a brilliant starting point.](https://github.com/jantic/DeOldify)
 
 ## **Run the code on FloydHub**
 [![Run on FloydHub](https://static.floydhub.com/button/button.svg)](https://floydhub.com/run?template=https://github.com/floydhub/colornet-template)
 
 Click this button to open a [Workspace](https://blog.floydhub.com/workspaces/) on [FloydHub](https://www.floydhub.com/?utm_medium=readme&utm_source=colornet&utm_campaign=aug_2018) where you will find the same environment and dataset used for the *Full version*. You can also find the trained models for [Serving](https://github.com/floydhub/colornet-template#serve-an-interactive-web-page-for-your-own-model).
 
-Thanks to IBM for donating computing power through their PowerAI platform
+## Acknowledgments
+- Thanks to IBM for donating computing power through their PowerAI platform
+- This is a reproduction of Baldassarre alt el., 2017. [Code](https://github.com/baldassarreFe/deep-koalarization) [Paper](https://arxiv.org/abs/1712.03400)
