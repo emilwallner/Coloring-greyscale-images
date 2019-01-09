@@ -12,7 +12,7 @@ I was fascinated by Amir’s neural network, so I reproduced it and documented t
 
 
 
-**Note:** If you want better results, I'd reccommend using a more modern approach such as GANs. [DeOldify is a brilliant starting point.](https://github.com/jantic/DeOldify)
+**Note:** If you want better results, I'd recommend using a more modern approach such as GANs. [DeOldify is a brilliant starting point.](https://github.com/jantic/DeOldify)
 
 ## **Run the code on FloydHub**
 [![Run on FloydHub](https://static.floydhub.com/button/button.svg)](https://floydhub.com/run?template=https://github.com/floydhub/colornet-template)
