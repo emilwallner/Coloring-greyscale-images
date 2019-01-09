@@ -17,7 +17,7 @@ I was fascinated by Amir’s neural network, so I reproduced it and documented t
 ## **Run the code on FloydHub**
 [![Run on FloydHub](https://static.floydhub.com/button/button.svg)](https://floydhub.com/run?template=https://github.com/floydhub/colornet-template)
 
-Click this button to open a [Workspace](https://blog.floydhub.com/workspaces/) on [FloydHub](https://www.floydhub.com/?utm_medium=readme&utm_source=colornet&utm_campaign=aug_2018) where you will find the same environment and dataset used for the *Full version*. You can also find the trained models for [Serving](https://github.com/floydhub/colornet-template#serve-an-interactive-web-page-for-your-own-model).
+Click this button to open a [Workspace](https://blog.floydhub.com/workspaces/) on [FloydHub](https://www.floydhub.com/?utm_medium=readme&utm_source=colornet&utm_campaign=aug_2018) where you will find the same environment and dataset used for the *Full version*. 
 
 ## Acknowledgments
 - Thanks to IBM for donating computing power through their PowerAI platform
