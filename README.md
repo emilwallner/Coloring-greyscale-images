@@ -6,13 +6,11 @@ This is the code for my article ["Coloring B&W portraits with neural networks"](
 
 Earlier this year, Amir Avni used neural networks to [troll the subreddit](http://www.whatimade.today/our-frst-reddit-bot-coloring-b-2/) [/r/Colorization](https://www.reddit.com/r/Colorization/) - a community where people colorize historical black and white images manually using Photoshop. They were astonished with Amir’s deep learning bot - what could take up to a month of manual labour could now be done in just a few seconds.
 
-I was fascinated by Amir’s neural network, so I reproduced it and documented the process. Read the article to understand the context of the code.  
-
-![Fusion Layer](fusion_layer.png)
-
-
+I was fascinated by Amir’s neural network, so I reproduced it and documented the process. Read the article to understand the context of the code.
 
 **Note:** If you want better results, I'd recommend using a more modern approach such as GANs. [DeOldify is a brilliant starting point.](https://github.com/jantic/DeOldify)
+
+![Fusion Layer](fusion_layer.png)
 
 ## **Run the code on FloydHub**
 [![Run on FloydHub](https://static.floydhub.com/button/button.svg)](https://floydhub.com/run?template=https://github.com/floydhub/colornet-template)
