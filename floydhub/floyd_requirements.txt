@@ -27,7 +27,7 @@ pyparsing==2.2.0
 python-resize-image==1.1.11
 pytz==2017.2
 PyWavelets==0.5.2
-PyYAML==3.12
+pyyaml>=4.2b1
 pyzmq==16.0.2
 requests>=2.20.0
 requests-toolbelt==0.8.0
