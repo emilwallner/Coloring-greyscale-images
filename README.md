@@ -8,8 +8,6 @@ Earlier this year, Amir Avni used neural networks to [troll the subreddit](http:
 
 I was fascinated by Amir’s neural network, so I reproduced it and documented the process. Read the article to understand the context of the code.
 
-**Note:** If you want better results, I'd recommend using a more modern approach such as GANs. [DeOldify is a brilliant starting point.](https://github.com/jantic/DeOldify)
-
 ![Fusion Layer](fusion_layer.png)
 
 ## **Run the code on FloydHub**
