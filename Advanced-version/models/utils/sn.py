@@ -14,6 +14,13 @@ from keras.legacy import interfaces
 from keras.layers import Dense, Conv1D, Conv2D, Conv3D, Conv2DTranspose, Embedding
 import tensorflow as tf
 
+# -------------------------------------------------------------------------------------------------------------
+#  SN Layer from Spectral Normalization for Generative Adversarial Networks
+#  Paper: https://arxiv.org/abs/1802.05957
+#  Author of the layer: I-Sheng Fang
+#  Source: https://github.com/IShengFang/SpectralNormalizationKeras/blob/master/SpectralNormalizationKeras.py
+# -------------------------------------------------------------------------------------------------------------
+
 class DenseSN(Dense):
     def build(self, input_shape):
         assert len(input_shape) >= 2
