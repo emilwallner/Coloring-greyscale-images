@@ -1,4 +1,4 @@
-# Coloring B&W portraits with neural networks.
+# Coloring Black and White images with neural networks.
 
 This is the code for my article ["Coloring B&W portraits with neural networks"](https://blog.floydhub.com/colorizing-b&w-photos-with-neural-networks/)
 
