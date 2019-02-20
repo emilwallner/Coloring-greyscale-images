@@ -12,7 +12,6 @@ from skimage.color import rgb2lab, lab2rgb, rgb2gray, gray2rgb
 from skimage.io import imsave
 import random
 import pickle
-from classification_models.resnet import preprocess_input
 
 
 def turn_filename_into_image(filenames, batch_size, width, height):
