@@ -3,6 +3,16 @@ from keras.layers import InputSpec
 import tensorflow as tf
 from keras.engine.topology import Layer
 
+# -------------------------------------------------------------------------------------
+#  Attention Layer from Self-Attention Generative Adversarial Networks
+#  Paper: https://arxiv.org/abs/1805.08318
+#  Author of the layer: Hao Chen
+#  Source: https://stackoverflow.com/questions/50819931/self-attention-gan-in-keras
+# -------------------------------------------------------------------------------------
+
+https://stackoverflow.com/questions/50819931/self-attention-gan-in-keras
+
+
 class Attention(Layer):
     def __init__(self, ch, **kwargs):
         super(Attention, self).__init__(**kwargs)
