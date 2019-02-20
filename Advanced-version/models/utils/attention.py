@@ -10,9 +10,6 @@ from keras.engine.topology import Layer
 #  Source: https://stackoverflow.com/questions/50819931/self-attention-gan-in-keras
 # -------------------------------------------------------------------------------------
 
-https://stackoverflow.com/questions/50819931/self-attention-gan-in-keras
-
-
 class Attention(Layer):
     def __init__(self, ch, **kwargs):
         super(Attention, self).__init__(**kwargs)
