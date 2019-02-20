@@ -40,6 +40,7 @@ width = 224
 channels = 3
 epochs = 1000000
 gpus = 1
+load_models = False
 batch_size = 8 
 cpus = 8
 use_multiprocessing = True
@@ -97,10 +98,11 @@ discriminator_full = DiscriminatorFull(gpus=gpus, decay_rate=decay_rate)
 discriminator_medium = DiscriminatorMedium(gpus=gpus, decay_rate=decay_rate)
 discriminator_low = DiscriminatorLow(gpus=gpus, decay_rate=decay_rate)
 
-core_generator.model.load_weights('./resources/core_generator.h5')
-discriminator_full.model.load_weights('./resources/discriminator_full.h5')
-discriminator_medium.model.load_weights('./resources/discriminator_medium.h5')
-discriminator_low.model.load_weights('./resources/discriminator_low.h5')
+if load_models:
+    core_generator.model.load_weights('./resources/core_generator.h5')
+    discriminator_full.model.load_weights('./resources/discriminator_full.h5')
+    discriminator_medium.model.load_weights('./resources/discriminator_medium.h5')
+    discriminator_low.model.load_weights('./resources/discriminator_low.h5')
 
 discriminator_full.model.trainable = False
 discriminator_medium.model.trainable = False
