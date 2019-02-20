@@ -36,12 +36,12 @@ class CoreGenerator():
         self.gf = 64
 
         
-        # -----------------------
-        #  Core Generator Encoder
-        # -----------------------
-
+        # -------------------------------------------------------------------------------------
+        #  Core Generator 
+        #  The U-net is from Erik Linder-Noren's brilliant pix2pix model
+        #  Source: https://github.com/eriklindernoren/Keras-GAN/blob/master/pix2pix/pix2pix.py
+        # -------------------------------------------------------------------------------------
         
-        """U-Net Generator"""
 
         def conv2d(layer_input, filters, f_size=4):
             """Layers used during downsampling"""
