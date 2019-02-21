@@ -6,7 +6,6 @@ from keras.callbacks import TensorBoard
 from keras.layers import Input, Dense
 from keras.models import Model
 import os
-from numba import jit
 from skimage.transform import resize, rotate, rescale
 from skimage.color import rgb2lab, lab2rgb, rgb2gray, gray2rgb
 from skimage.io import imsave
@@ -61,7 +60,6 @@ def generator(X, batch_size, dataset_len, width, height):
         x, y, x_and_y = generate_training_images(X, batch_size, dataset_len, width, height)
         yield x, y, x_and_y
 
-@jit
 def generate_label_data(batch_size, output_size_pred, output_size_features):
 
     fake_labels = np.zeros((batch_size, output_size_pred, 1))
