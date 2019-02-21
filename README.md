@@ -33,10 +33,11 @@ In the article, I use the [Unsplash dataset](https://www.floydhub.com/emilwallne
 ## GAN Version
 The GAN version uses Generative Adversarial Networks to make the coloring more consistent and vibrant. However, the network is a magnitude more complex and requires more computing power to work with. Many of the techniques in this network are inspired by the brilliant work of [Jason Antic](https://github.com/jantic) and his [DeOldify](https://github.com/jantic/DeOldify) coloring network. 
 
-In breif, the generator comes from the [pix2pix model](https://arxiv.org/abs/1611.07004), the discriminators and loss function from the [pix2pixHD model](https://github.com/NVIDIA/pix2pixHD), and a few optimizations from the [Self-Attention GAN](https://arxiv.org/abs/1805.08318). 
+In breif, the generator comes from the [pix2pix model](https://arxiv.org/abs/1611.07004), the discriminators and loss function from the [pix2pixHD model](https://github.com/NVIDIA/pix2pixHD), and a few optimizations from the [Self-Attention GAN](https://arxiv.org/abs/1805.08318). If you want to experiment with this approach, I'd recommend starting with [Erik Linder-Norén](https://github.com/eriklindernoren)'s excellent [pix2pix](https://github.com/eriklindernoren/Keras-GAN/tree/master/pix2pix) implementation. 
 
 <p align="center"><img src="/README_images/gan.png?raw=true" width="747px"></p>
 
+With a 16GB GPU you can fit 150 images that are 128x128 and 25 images that are 256x256. The learning improved a magnitude faster on the 128x128 images compared to the 256x256 images.
 
 
 
