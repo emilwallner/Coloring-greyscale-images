@@ -1,12 +1,23 @@
-# Coloring Black and White images with neural networks.
+![Coloring Black and White Images with Neural Networks](./README_images/coloring-black-and-white-images-with-neural-networks.svg)
 
-This is the code for my article ["Coloring B&W portraits with neural networks"](https://blog.floydhub.com/colorizing-b&w-photos-with-neural-networks/)
+---
 
-Earlier this year, Amir Avni used neural networks to [troll the subreddit](http://www.whatimade.today/our-frst-reddit-bot-coloring-b-2/) [/r/Colorization](https://www.reddit.com/r/Colorization/) - a community where people colorize historical black and white images manually using Photoshop. They were astonished with Amir’s deep learning bot - what could take up to a month of manual labour could now be done in just a few seconds.
+**A detailed tutorial covering the code in this repository:** ["Coloring Black and White photos with Neural Networks"](https://blog.floydhub.com/colorizing-b&w-photos-with-neural-networks/)
 
-I was fascinated by Amir’s neural network, so I reproduced it and documented the process. Read the article to understand the context of the code.
+## Alpha Version
+![Alpha Version](./README_images/alpha.png)
 
-![Fusion Layer](fusion_layer.png)
+## Beta Version
+![Beta Version](./README_images/beta.png)
+
+## Full Version
+![Full Version](./README_images/full.png)
+
+![Fusion Layer](./README_images/fusion_layer.png)
+
+## GAN Version
+![GAN Version](./README_images/gan.png)
+
 
 ## **Run the code on FloydHub**
 [![Run on FloydHub](https://static.floydhub.com/button/button.svg)](https://floydhub.com/run?template=https://github.com/floydhub/colornet-template)
