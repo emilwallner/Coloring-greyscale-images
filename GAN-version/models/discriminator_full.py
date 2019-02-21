@@ -10,15 +10,15 @@ from keras.layers import Conv2D, Lambda, add, AvgPool2D, Activation, UpSampling2
 
 
 class DiscriminatorFull():
-    """Core Generator.
+    """Full Resolution Discriminator.
         
     # Arguments
         width: Width of image in pixels
         height: Height of image in pixels
         channels: Channels for the input image and the generated image
         gpus: The number of gpus you will be using.
-        learning_rate: learning rate
-        decay_rate: 
+        learning_rate: Learning rate
+        decay_rate: The amount of learning decay for each training update
     """
 
     def __init__(self,
