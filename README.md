@@ -23,7 +23,9 @@ The network in the beta version is very similar to the alpha version. The differ
 For this model, I'd go with a this [cropped celebrity dataset](https://github.com/2014mchidamb/DeepColorization/tree/master/face_images) or [Nvidia's StyleGAN dataset](https://github.com/NVlabs/stylegan). Because the images are very similar, the network can learn basic colorization despite being trivial. To get a feel for the limits of this network, you can try it on this dataset of [diverse images from Unsplash](https://www.floydhub.com/emilwallner/datasets/colornet). If you are on a laptop, I'd run it for a day. If you are using a GPU, train it at least 6 - 12h. 
 
 ## Full Version
-The full version adds information from a pre-trained classifier. You can think of the information as 20% nature, 30% humans, 30% sky, and 20% brick buildings. It then learns to combine that information with the black and white photo. It gives the network more confidence to color the image. Otherwise, it tends to default to the safest color, brown. 
+The full version adds information from a pre-trained classifier. You can think of the information as 20% nature, 30% humans, 30% sky, and 20% brick buildings. It then learns to combine that information with the black and white photo. It gives the network more confidence to color the image. Otherwise, it tends to default to the safest color, brown.
+
+The model comes from an elegant insight by [Baldassarre and his team.](https://github.com/baldassarreFe/deep-koalarization)
 
 <p align="center"><img src="/README_images/full.png?raw=true" width="750px"></p>
 
