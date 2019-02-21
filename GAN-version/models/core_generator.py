@@ -38,8 +38,10 @@ class CoreGenerator():
         
         # -------------------------------------------------------------------------------------
         #  Core Generator 
-        #  The U-net is from Erik Linder-Noren's brilliant pix2pix model
+        #  The U-net structure is from Erik Linder-Noren's brilliant pix2pix model
         #  Source: https://github.com/eriklindernoren/Keras-GAN/blob/master/pix2pix/pix2pix.py
+        #  Modifications: Thinner to enable 128x128 images, Spectral Normalization and 
+        #  an Attention layer. 
         # -------------------------------------------------------------------------------------
         
 
