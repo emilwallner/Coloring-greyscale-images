@@ -9,15 +9,15 @@ from keras.utils import multi_gpu_model
 from keras.layers import Conv2D, Lambda, add, AvgPool2D, Activation, UpSampling2D, Input, concatenate, Reshape, LeakyReLU, Reshape, Flatten, concatenate
 
 class DiscriminatorLow():
-    """Core Generator.
+    """1/4 Resolution Discriminator.
         
     # Arguments
         width: Width of image in pixels
         height: Height of image in pixels
         channels: Channels for the input image and the generated image
-        gpus: The number of gpus you will be using. 
-        learning_rate: learning rate
-        decay_rate: 
+        gpus: The number of gpus you will be using.
+        learning_rate: Learning rate
+        decay_rate: The amount of learning decay for each training update
     """
 
     def __init__(self,
