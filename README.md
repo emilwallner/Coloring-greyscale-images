@@ -5,18 +5,17 @@
 **A detailed tutorial covering the code in this repository:** ["Coloring Black and White photos with Neural Networks"](https://blog.floydhub.com/colorizing-b&w-photos-with-neural-networks/)
 
 ## Alpha Version
-![Alpha Version](./README_images/alpha.png)
+<p align="center"><img src="/README_images/alpha.png?raw=true" width="747px"></p>
 
 ## Beta Version
-![Beta Version](./README_images/beta.png)
+<p align="center"><img src="/README_images/beta.png?raw=true" width="745px"></p>
 
 ## Full Version
-![Full Version](./README_images/full.png)
+<p align="center"><img src="/README_images/full.png?raw=true" width="750px"></p>
 
-![Fusion Layer](./README_images/fusion_layer.png)
 
 ## GAN Version
-![GAN Version](./README_images/gan.png)
+<p align="center"><img src="/README_images/gan.png?raw=true" width="747px"></p>
 
 
 ## **Run the code on FloydHub**
