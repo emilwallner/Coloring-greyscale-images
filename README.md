@@ -20,13 +20,24 @@ The network in the beta version is very similar to the alpha version. The differ
 
 <p align="center"><img src="/README_images/beta.png?raw=true" width="745px"></p>
 
-For this model, I'd go with a this [cropped celebrity dataset](https://github.com/2014mchidamb/DeepColorization/tree/master/face_images) or [Nvidia's StyleGAN dataset](https://github.com/NVlabs/stylegan). Because the images are very similar, the network can learn basic colorization despite being trivial. To get a feel for the limits of this network, you can try it on this dataset of [diverse images from Unsplash](https://www.floydhub.com/emilwallner/datasets/colornet).
+For this model, I'd go with a this [cropped celebrity dataset](https://github.com/2014mchidamb/DeepColorization/tree/master/face_images) or [Nvidia's StyleGAN dataset](https://github.com/NVlabs/stylegan). Because the images are very similar, the network can learn basic colorization despite being trivial. To get a feel for the limits of this network, you can try it on this dataset of [diverse images from Unsplash](https://www.floydhub.com/emilwallner/datasets/colornet). If you are on a laptop, I'd run it for a day. If you are using a GPU, train it at least 6 - 12h. 
 
 ## Full Version
+The full version adds information from a pre-trained classifier. You can think of the information as 20% nature, 30% humans, 30% sky, and 20% brick buildings. It then learns to combine that information with the black and white photo. It gives the network more confidence to color the image. Otherwise, it tends to default to the safest color, brown. 
+
 <p align="center"><img src="/README_images/full.png?raw=true" width="750px"></p>
 
+In the article, I use the [Unsplash dataset](https://www.floydhub.com/emilwallner/datasets/colornet), but in retrospect, I'd choose five to ten categories in the [Imagenet dataset](http://image-net.org/download). You can also go with the [Nvidia's StyleGAN dataset](https://github.com/NVlabs/stylegan) or create a dataset from [Pixabay categories](https://github.com/wanghaodi/PixabaySpider). You'll start getting some results after about 12 - 24 hours on a GPU. 
+
+
 ## GAN Version
+The GAN version uses Generative Adversarial Networks to make the coloring more consistent and vibrant. However, the network is a magnitude more complex and requires more computing power to work with. Many of the techniques in this network are inspired by the brilliant work of [Jason Antic](https://github.com/jantic) and his [DeOldify](https://github.com/jantic/DeOldify) coloring network. 
+
+In breif, the generator comes from the [pix2pix model](https://arxiv.org/abs/1611.07004), the discriminators and loss function from the [pix2pixHD model](https://github.com/NVIDIA/pix2pixHD), and a few optimizations from the [Self-Attention GAN](https://arxiv.org/abs/1805.08318). 
+
 <p align="center"><img src="/README_images/gan.png?raw=true" width="747px"></p>
+
+
 
 
 ## **Run the code on FloydHub**
