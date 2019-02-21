@@ -4,15 +4,26 @@
 
 **A detailed tutorial covering the code in this repository:** ["Coloring Black and White photos with Neural Networks"](https://blog.floydhub.com/colorizing-b&w-photos-with-neural-networks/)
 
+The network is built in four parts and gradually becomes more complex. The first part is the bare minimum to understand the core parts of the network. It's built to color one image. Once I have something to experiment with, I find it easier to add the remaining 80% of the network. 
+
+For the second stage, the Beta version, I start automating the training flow. In the full version, I add features from a pre-trained classifier. The GAN version is not covered in the tutorial. It's an experimental version using some of the emerging best practices in image colorization.
+
 ## Alpha Version
+This is a great starting point to get a hang of the moving pieces. How an image is transformed into RGB pixel values and later translated into LAB pixel values, [changing the color space](https://ciechanow.ski/color-spaces/). It also builds a core intuition for how the network learns. How the network compares the input with the output and adjusts the network. 
+
 <p align="center"><img src="/README_images/alpha.png?raw=true" width="747px"></p>
 
+In this version, you will see a result in a few minutes. Once you have trained the network, try coloring an image it was not trained on. This will build an intuition for the purpose of the later versions. 
+
 ## Beta Version
+The network in the beta version is very similar to the alpha version. The difference is that we use more than one image to train the network. I'd recommend running ```top/htop``` and ```nvidia-smi``` to see how different batch sizes affect your computer's memory. 
+
 <p align="center"><img src="/README_images/beta.png?raw=true" width="745px"></p>
+
+For this model, I'd go with a this [cropped celebrity dataset](https://github.com/2014mchidamb/DeepColorization/tree/master/face_images) or [Nvidia's StyleGAN dataset](https://github.com/NVlabs/stylegan). Because the images are very similar, the network can learn basic colorization despite being trivial. To get a feel for the limits of this network, you can try it on this dataset of [diverse images from Unsplash](https://www.floydhub.com/emilwallner/datasets/colornet).
 
 ## Full Version
 <p align="center"><img src="/README_images/full.png?raw=true" width="750px"></p>
-
 
 ## GAN Version
 <p align="center"><img src="/README_images/gan.png?raw=true" width="747px"></p>
