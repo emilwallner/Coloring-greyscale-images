@@ -19,7 +19,7 @@ class CoreGenerator():
     # Arguments
         width: Width of image in pixels
         height: Height of image in pixels
-        channels: Channels for the input image and the generated image
+        channels: Channels for the input image
         gpus: The number of gpus you will be using. 
     """
 
