@@ -11,10 +11,10 @@ For the second stage, the Beta version, I start automating the training flow. In
 **Note:** The display images below are cherry-picked. A large majority of the images are mostly black and white or are lightly colored in brown. A narrow and simple dataset often creates better results. 
 
 ## Installation 
-[Install python 3 and pip](https://realpython.com/installing-python/)
+- [Install python 3 and pip](https://realpython.com/installing-python/)
 
 ```
-pip install keras tensorflow pillow h5py jupyter
+pip install keras tensorflow pillow h5py jupyter scikit-image
 ```
 
 ```
