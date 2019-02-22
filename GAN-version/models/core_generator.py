@@ -6,7 +6,6 @@ from keras.layers.core import Activation, SpatialDropout2D
 from keras.layers.merge import concatenate
 from keras.layers.normalization import BatchNormalization
 from keras.layers.pooling import MaxPooling2D
-from classification_models.resnet import ResNet34, preprocess_input
 from .utils.instance_normalization import InstanceNormalization
 from .utils.sn import ConvSN2D
 from .utils.attention import Attention
