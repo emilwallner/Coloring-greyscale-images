@@ -10,6 +10,26 @@ For the second stage, the Beta version, I start automating the training flow. In
 
 **Note:** The display images below are cherry-picked. A large majority of the images are mostly black and white or are lightly colored in brown. A narrow and simple dataset often creates better results. 
 
+## Installation 
+[Install python 3 and pip](https://realpython.com/installing-python/)
+
+```
+pip install keras tensorflow pillow h5py jupyter
+```
+
+```
+git clone https://github.com/emilwallner/Coloring-greyscale-images
+cd Coloring-greyscale-images/
+jupyter notebook
+```
+
+Go do the desired notebook, files that end with '.ipynb'. To run the model, go to the menu then click on Cell > Run all
+
+For the GAN version, enter the GAN-version folder, and run:
+```
+python3 colorize_base.py
+```
+
 ## Alpha Version
 This is a great starting point to get a hang of the moving pieces. How an image is transformed into RGB pixel values and later translated into LAB pixel values, [changing the color space](https://ciechanow.ski/color-spaces/). It also builds a core intuition for how the network learns. How the network compares the input with the output and adjusts the network. 
 
