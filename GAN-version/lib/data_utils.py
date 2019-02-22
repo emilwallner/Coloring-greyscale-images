@@ -10,7 +10,6 @@ from skimage.transform import resize, rotate, rescale
 from skimage.color import rgb2lab, lab2rgb, rgb2gray, gray2rgb
 from skimage.io import imsave
 import random
-import pickle
 
 
 def turn_filename_into_image(filenames, batch_size, width, height):
