@@ -8,7 +8,7 @@ The network is built in four parts and gradually becomes more complex. The first
 
 For the second stage, the Beta version, I start automating the training flow. In the full version, I add features from a pre-trained classifier. The GAN version is not covered in the tutorial. It's an experimental version using some of the emerging best practices in image colorization.
 
-**Note:** The display images below are cherry-picked. A large majority of the images are mostly black and white or a lightly colored in brown. A narrow and simple dataset often creates better results. 
+**Note:** The display images below are cherry-picked. A large majority of the images are mostly black and white or are lightly colored in brown. A narrow and simple dataset often creates better results. 
 
 ## Alpha Version
 This is a great starting point to get a hang of the moving pieces. How an image is transformed into RGB pixel values and later translated into LAB pixel values, [changing the color space](https://ciechanow.ski/color-spaces/). It also builds a core intuition for how the network learns. How the network compares the input with the output and adjusts the network. 
