@@ -71,6 +71,7 @@ In breif, the generator comes from the [pix2pix model](https://arxiv.org/abs/161
 - [Nvidia's StyleGAN model](https://github.com/NVlabs/stylegan) has shown some incredible images. It might be worth experimenting with some of the best practice they developed. Same goes with the [Large Scale GAN paper](https://arxiv.org/abs/1809.11096).
 - I've added the pix2pixHD generator, but it requires more compute to converge.
 - The image generator has some memory problems. Perhaps go with the original generator in Keras or find something equivalent. 
+- If you want to build your own dataset, I've inluded a few scraping and cleaning scripts in 'download_and_clean_data_scripts'. You can build the datasets based on keywords from [Yahoo's 100M images](https://webscope.sandbox.yahoo.com/catalog.php?datatype=i&did=67) or [Pixabay](https://pixabay.com/).
 - I've implemented it for multi-gpu, however, all the models are copied on each GPU. This increases the [batch sizes which improves the result](https://arxiv.org/abs/1809.11096), but it only marginally increases images/sec. I'd recommend specifing on which GPU each model is loaded, to avoid merging the weights for each batch.
 
 
