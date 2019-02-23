@@ -62,8 +62,15 @@ In breif, the generator comes from the [pix2pix model](https://arxiv.org/abs/161
 
 <p align="center"><img src="/README_images/gan.png?raw=true" width="747px"></p>
 
-With a 16GB GPU you can fit 150 images that are 128x128 and 25 images that are 256x256. The learning improved a magnitude faster on the 128x128 images compared to the 256x256 images.
-
+- With a 16GB GPU, you can fit 150 images that are 128x128 and 25 images that are 256x256. 
+- The learning improved a magnitude faster on the 128x128 images compared to the 256x256 images.
+- I'd recommend experimenting with pre-trained U-nets (One of the secrets in Jason's model)
+- Test different normalizations. I prefer spectral normalization, but I've also added instance normalization.
+- The network uses 3 discriminators for different image resolutions, based on the pix2pixHD paper. However, this might be overkill, so I'd try it with one.
+- [Nvidia's StyleGAN model](https://github.com/NVlabs/stylegan) has shown some incredible images. It might be worth experimenting with some of the best practice they developed. Same goes with the [Large Scale GAN paper](https://arxiv.org/abs/1809.11096).
+- I've added the pix2pixHD generator, but it requires more compute to converge.
+- The image generator has some memory problems. Perhaps go with the original generator in Keras or find something equivalent. 
+- I've implemented it for multi-gpu, however, all the models are copied on each GPU. This increases the [batch sizes which improves the result](https://arxiv.org/abs/1809.11096), but it only marginally increases images/sec. I'd recommend specifing on which GPU each model is loaded, to avoid merging the weights for each batch.
 
 
 ## **Run the code on FloydHub**
