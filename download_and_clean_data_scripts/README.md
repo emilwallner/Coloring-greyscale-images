@@ -1,7 +1,7 @@
 # Yahoo Flickr Creative Commons 100M
 
 - Get access here: https://webscope.sandbox.yahoo.com/catalog.php?datatype=i&did=67
-- Once you register you will get an email how to download the image urls
+- Once you register you will get an instant email how to download the image urls (check your spam folder)
 - Once you have the text file split it with 1M lines in each: ```split -l 1000000 mybigfile.txt```
 - Edit the 'parse100m.py' file and choose which keywords to download and how many CPUs you have
 - Run the script
