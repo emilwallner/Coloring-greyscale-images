@@ -62,6 +62,7 @@ In breif, the generator comes from the [pix2pix model](https://arxiv.org/abs/161
 
 <p align="center"><img src="/README_images/gan.png?raw=true" width="747px"></p>
 
+**Implementation details:**
 - With a 16GB GPU, you can fit 150 images that are 128x128 and 25 images that are 256x256. 
 - The learning improved a magnitude faster on the 128x128 images compared to the 256x256 images.
 - I'd recommend experimenting with pre-trained U-nets (One of the secrets in Jason's model)
