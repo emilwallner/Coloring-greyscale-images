@@ -3,7 +3,6 @@ import os
 import time
 
 # Extra
-
 from keras.engine.topology import Input
 from keras.engine.training import Model
 from keras.layers import LeakyReLU, Concatenate, Dropout
@@ -18,10 +17,8 @@ from models.utils.calc_output_and_feature_size import calc_output_and_feature_si
 from models.utils.attention import Attention
 from keras.layers import Conv2D, Lambda, add, AvgPool2D, Activation, UpSampling2D, Input, concatenate, Reshape, LeakyReLU, Reshape, Flatten, concatenate
 
-
 # Custom Libs
 from models.utils.calc_output_and_feature_size import calc_output_and_feature_size
-from models.utils.AdamAccumulate import AdamAccumulate
 from lib.data_utils import save_sample_images, write_log, generate_training_images
 from lib.data_utils import generator, generate_label_data
 
@@ -43,7 +40,7 @@ from models.discriminator_low import DiscriminatorLow
 from models.discriminator_medium import DiscriminatorMedium
 from models.core_generator import CoreGenerator
 
-# Other Moduals 
+# Other Modules 
 import tensorflow as tf
 import numpy as np
 
