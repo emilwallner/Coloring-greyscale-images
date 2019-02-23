@@ -2,8 +2,26 @@
 import os
 import time
 
+# Extra
+
+from keras.engine.topology import Input
+from keras.engine.training import Model
+from keras.layers import LeakyReLU, Concatenate, Dropout
+from keras.layers.convolutional import Conv2D, UpSampling2D, Conv2DTranspose
+from keras.layers.core import Activation, SpatialDropout2D
+from keras.layers.merge import concatenate
+from keras.layers.normalization import BatchNormalization
+from keras.layers.pooling import MaxPooling2D
+from models.utils.instance_normalization import InstanceNormalization
+from models.utils.sn import ConvSN2D
+from models.utils.calc_output_and_feature_size import calc_output_and_feature_size
+from models.utils.attention import Attention
+from keras.layers import Conv2D, Lambda, add, AvgPool2D, Activation, UpSampling2D, Input, concatenate, Reshape, LeakyReLU, Reshape, Flatten, concatenate
+
+
 # Custom Libs
 from models.utils.calc_output_and_feature_size import calc_output_and_feature_size
+from models.utils.AdamAccumulate import AdamAccumulate
 from lib.data_utils import save_sample_images, write_log, generate_training_images
 from lib.data_utils import generator, generate_label_data
 
@@ -33,23 +51,25 @@ import numpy as np
 #  Settings 
 # ----------
 
-height = 128
-width = 128
+height = 256
+width = 256
 channels = 1
-epochs = 10
+epochs = 1
 gpus = 1
-batch_size = 150
-cpus = 8
+batch_size = 5
+cpus = 2
 use_multiprocessing = True
 save_weights_every_n_epochs = 0.01
-max_queue_size=batch_size * 3
-img_dir = "../Full-version/Train/"
+max_queue_size=batch_size * 1
+img_dir = "./Train/"
+test_dir = "./Test/"
 resource_dir = "./resources/"
 dataset_len = len(os.listdir(img_dir))
+testset_len = len(os.listdir(test_dir))
 learning_rate = 0.0002
 experiment_name = time.strftime("%Y-%m-%d-%H-%M")
 decay_rate = 0
-# decay_rate = learning_rate / ((dataset_len / batch_size) * epochs)
+decay_rate = learning_rate / ((dataset_len / batch_size) * epochs)
 
 
 # ----------------------------------
@@ -60,12 +80,17 @@ X = []
 for filename in os.listdir(img_dir):
     X.append(filename)
 
+Test = []
+for filename in os.listdir(test_dir):
+    Test.append(filename)    
+    
 # ----------------------------------
 #  Create directory for sample data
 # ----------------------------------
 
-main_dir = './output/128_attention/' + experiment_name
+main_dir = './output/256/' + experiment_name
 save_sample_images_dir = main_dir + '/sample_images/'
+save_validation_images_dir = main_dir + '/validation_images/'
 weights_dir = main_dir +'/weights/'
 log_path = main_dir + '/logs/'
 model_path = main_dir + '/models/'
@@ -73,26 +98,30 @@ model_path = main_dir + '/models/'
 if not os.path.exists(main_dir):
     os.makedirs(main_dir)
     os.makedirs(save_sample_images_dir)
+    os.makedirs(save_validation_images_dir)
     os.makedirs(log_path)
     os.makedirs(weights_dir)
     os.makedirs(model_path)
 
-
 # ---------------
 #  Import Models 
 # ---------------
-
+    
 core_generator = CoreGenerator(gpus=gpus, width=width, height=height)
 discriminator_full = DiscriminatorFull(gpus=gpus, decay_rate=decay_rate, width=width, height=height)
 discriminator_medium = DiscriminatorMedium(gpus=gpus, decay_rate=decay_rate, width=width, height=height)
 discriminator_low = DiscriminatorLow(gpus=gpus, decay_rate=decay_rate, width=width, height=height)
 
-discriminator_full.model.trainable = False
+if os.path.isdir("./resources/"):
+    core_generator.model.load_weights('./resources/core_generator.h5')
+    discriminator_full.model.load_weights('./resources/discriminator_full.h5')
+    discriminator_medium.model.load_weights('./resources/discriminator_medium.h5')
+    discriminator_low.model.load_weights('./resources/discriminator_low.h5')
+
+discriminator_full.trainable = False
 discriminator_medium.model.trainable = False
 discriminator_full.model.trainable = False
 
-def concatenateNumba(x, y):
-    return np.concatenate([x, y], axis=-1)
 
 # --------------------------------
 #  Create GAN with core generator
@@ -136,8 +165,7 @@ def zero_loss(y_true, y_pred):
 
 loss_d = ['mse', zero_loss]
 loss_weights_d = [1, 0]
-optimizer_dis = Adam(learning_rate * 2, 0.5, decay=decay_rate)
-
+optimizer_dis = Adam(learning_rate, 0.5, decay=decay_rate)
 
 discriminator_full_multi = discriminator_full.model
 discriminator_medium_multi = discriminator_medium.model
@@ -152,11 +180,10 @@ discriminator_low_multi.compile(optimizer=optimizer_dis, loss_weights=loss_weigh
 #  Initiate Generator Queue
 # --------------------------------------------------
 
-enqueuer = GeneratorEnqueuer(generator(X, batch_size, dataset_len, width, height), use_multiprocessing=use_multiprocessing, wait_time=0.01)
+enqueuer = GeneratorEnqueuer(generator(X, img_dir, batch_size, dataset_len, width, height), use_multiprocessing=use_multiprocessing, wait_time=0.01)
 
 enqueuer.start(workers=cpus, max_queue_size=max_queue_size)
 output_generator = enqueuer.get()
-
 
 # ---------------------------------
 #  Initiate values for Tensorboard
@@ -167,9 +194,9 @@ callback_Medium = TensorBoard(log_path)
 callback_Low = TensorBoard(log_path)
 callback_gan = TensorBoard(log_path)
 
-callback_Full.set_model(discriminator_full.save_model)
-callback_Medium.set_model(discriminator_medium.save_model)
-callback_Low.set_model(discriminator_low.save_model)
+callback_Full.set_model(discriminator_full.model)
+callback_Medium.set_model(discriminator_medium.model)
+callback_Low.set_model(discriminator_low.model)
 callback_gan.set_model(gan_core)
 
 callback_Full_names = ['weighted_loss_real_full', 'disc_loss_real_full', 'zero_1', 'weighted_loss_fake_full', 'disc_loss_fake_full', 'zero_2']
@@ -179,8 +206,8 @@ callback_gan_names = ['total_gan_loss', 'image_diff', 'feature_diff_disc_full', 
 
 # Decide how often to create sample images, save log data, and weights. 
 cycles = int(epochs * (dataset_len / batch_size))
-save_images_cycle = int((dataset_len / batch_size) / 10)
-save_weights_cycle = int((dataset_len / batch_size) / 9)
+save_images_cycle = int((dataset_len / batch_size) / 100)
+save_weights_cycle = int((dataset_len / batch_size) / 100)
 
 # Calculate the discriminator output size for features and image predictions
 pred_size_f, feat_size_f = calc_output_and_feature_size(width, height)
@@ -188,8 +215,10 @@ pred_size_m, feat_size_m = calc_output_and_feature_size(width/2, height/2)
 pred_size_l, feat_size_l = calc_output_and_feature_size(width/4, height/4)
 
 # Create benchmark to see progress
-x_benchmark, y_benchmark, x_y_benchmark = next(output_generator)
 start = time.time()
+
+def concatenateNumba(x, y):
+    return np.concatenate([x, y], axis=-1)
 
 for i in range(0, cycles):
     start_c = time.time()
@@ -276,21 +305,23 @@ for i in range(0, cycles):
         hours, rem = divmod(end-start, 3600)
         minutes, seconds = divmod(rem, 60)
         print("{:0>2}:{:0>2}:{:05.2f}".format(int(hours),int(minutes),seconds))
-        output_benchmark, _, _, _, _, _ ,_ = gan_core.predict(x_benchmark)
-        save_sample_images(output_benchmark, x_benchmark, 'b-' + str(i), save_sample_images_dir)
+        x_val, y_val, x_y_val = generate_training_images(Test, test_dir, 20, testset_len, width, height,  True)
+        output_benchmark, _, _, _, _, _ ,_ = gan_core.predict(x_val)
+        save_sample_images(output_benchmark, x_val, 'b-' + str(i), save_validation_images_dir)
         save_sample_images(y_gen_full, x_full, str(i), save_sample_images_dir)
         start = time.time()
 
     #  Save weights
     if i % save_weights_cycle == 0:
-        discriminator_full.save_model.save_weights(weights_dir + str(i) + "-discriminator_full.h5")
-        discriminator_medium.save_model.save_weights(weights_dir + str(i) + "-discriminator_medium.h5")
-        discriminator_low.save_model.save_weights(weights_dir + str(i) + "-discriminator_low.h5")
-        core_generator.save_model.save_weights(weights_dir + str(i) + "-core_generator.h5")
+        discriminator_full.model.save_weights(weights_dir + str(i) + "-discriminator_full.h5")
+        discriminator_medium.model.save_weights(weights_dir + str(i) + "-discriminator_medium.h5")
+        discriminator_low.model.save_weights(weights_dir + str(i) + "-discriminator_low.h5")
+        core_generator.model.save_weights(weights_dir + str(i) + "-core_generator.h5")
 
         
-        discriminator_full.save_model.save_weights(resource_dir + "discriminator_full.h5")
-        discriminator_medium.save_model.save_weights(resource_dir + "discriminator_medium.h5")
-        discriminator_low.save_model.save_weights(resource_dir + "discriminator_low.h5")
-        core_generator.save_model.save_weights(resource_dir + "core_generator.h5")
+        discriminator_full.model.save_weights(resource_dir + "discriminator_full.h5")
+        discriminator_medium.model.save_weights(resource_dir + "discriminator_medium.h5")
+        discriminator_low.model.save_weights(resource_dir + "discriminator_low.h5")
+        core_generator.model.save_weights(resource_dir + "core_generator.h5")
+
 
