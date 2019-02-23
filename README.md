@@ -29,7 +29,7 @@ For the GAN version, enter the GAN-version folder, and run:
 python3 colorize_base.py
 ```
 
-**Download the pre-trained weights for the GAN-version [here](https://drive.google.com/open?id=1Vpd-6CpF4pVzmkOPd7rqyYP1OOuZaRrd), and put them in the resources folder.** It's trained on contemporary photography with different objects but not a lot of people. 
+**Pre-trained weights:** Download the pre-trained weights for the GAN-version [here](https://drive.google.com/open?id=1Vpd-6CpF4pVzmkOPd7rqyYP1OOuZaRrd). Create a folder called 'resources' and put it inside of Coloring-greyscale-images/GAN-version/. It's trained on contemporary photography with different objects but not a lot of people. 
 
 ## Alpha Version
 This is a great starting point to get a hang of the moving pieces. How an image is transformed into RGB pixel values and later translated into LAB pixel values, [changing the color space](https://ciechanow.ski/color-spaces/). It also builds a core intuition for how the network learns. How the network compares the input with the output and adjusts the network. 
