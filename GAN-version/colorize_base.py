@@ -92,9 +92,6 @@ weights_dir = main_dir +'/weights/'
 log_path = main_dir + '/logs/'
 model_path = main_dir + '/models/'
 
-if not os.path.exists(resource_dir):
-    os.makedirs(resource_dir)
-
 if not os.path.exists(main_dir):
     os.makedirs(main_dir)
     os.makedirs(save_sample_images_dir)
@@ -117,6 +114,10 @@ if os.path.isdir("./resources/"):
     discriminator_full.model.load_weights('./resources/discriminator_full.h5')
     discriminator_medium.model.load_weights('./resources/discriminator_medium.h5')
     discriminator_low.model.load_weights('./resources/discriminator_low.h5')
+
+# Create a directory to save weights
+if not os.path.exists(resource_dir):
+    os.makedirs(resource_dir)
 
 discriminator_full.trainable = False
 discriminator_medium.model.trainable = False
