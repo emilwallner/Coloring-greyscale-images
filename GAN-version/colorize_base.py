@@ -302,7 +302,7 @@ for i in range(0, cycles):
         hours, rem = divmod(end-start, 3600)
         minutes, seconds = divmod(rem, 60)
         print("{:0>2}:{:0>2}:{:05.2f}".format(int(hours),int(minutes),seconds))
-        x_val, y_val, x_y_val = generate_training_images(Test, test_dir, 20, testset_len, width, height,  True)
+        x_val, y_val, x_y_val = generate_training_images(Test, 5, testset_len, width, height, test_dir)
         output_benchmark, _, _, _, _, _ ,_ = gan_core.predict(x_val)
         save_sample_images(output_benchmark, x_val, 'b-' + str(i), save_validation_images_dir)
         save_sample_images(y_gen_full, x_full, str(i), save_sample_images_dir)
