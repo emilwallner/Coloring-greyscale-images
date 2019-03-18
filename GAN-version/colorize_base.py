@@ -51,7 +51,7 @@ import numpy as np
 height = 128
 width = 128
 channels = 1
-epochs = 1
+epochs = 10
 gpus = 1
 batch_size = 5
 cpus = 2
@@ -203,8 +203,8 @@ callback_gan_names = ['total_gan_loss', 'image_diff', 'feature_diff_disc_full', 
 
 # Decide how often to create sample images, save log data, and weights. 
 cycles = int(epochs * (dataset_len / batch_size))
-save_images_cycle = int((dataset_len / batch_size) / 100)
-save_weights_cycle = int((dataset_len / batch_size) / 100)
+save_images_cycle = int((dataset_len / batch_size))
+save_weights_cycle = int((dataset_len / batch_size))
 
 # Calculate the discriminator output size for features and image predictions
 pred_size_f, feat_size_f = calc_output_and_feature_size(width, height)
@@ -217,7 +217,7 @@ start = time.time()
 def concatenateNumba(x, y):
     return np.concatenate([x, y], axis=-1)
 
-for i in range(1, cycles):
+for i in range(0, cycles):
     start_c = time.time()
     # ------------------------
     #  Generate Training Data
