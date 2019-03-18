@@ -217,7 +217,7 @@ start = time.time()
 def concatenateNumba(x, y):
     return np.concatenate([x, y], axis=-1)
 
-for i in range(0, cycles):
+for i in range(1, cycles):
     start_c = time.time()
     # ------------------------
     #  Generate Training Data
