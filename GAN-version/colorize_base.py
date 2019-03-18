@@ -48,8 +48,8 @@ import numpy as np
 #  Settings 
 # ----------
 
-height = 256
-width = 256
+height = 128
+width = 128
 channels = 1
 epochs = 1
 gpus = 1
