@@ -92,6 +92,9 @@ weights_dir = main_dir +'/weights/'
 log_path = main_dir + '/logs/'
 model_path = main_dir + '/models/'
 
+if not os.path.exists(resource_dir):
+    os.makedirs(resource_dir)
+
 if not os.path.exists(main_dir):
     os.makedirs(main_dir)
     os.makedirs(save_sample_images_dir)
