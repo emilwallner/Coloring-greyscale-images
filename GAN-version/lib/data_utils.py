@@ -12,7 +12,7 @@ from skimage.io import imsave
 import random
 
 
-def turn_filename_into_image(filenames, batch_size, width, height):
+def turn_filename_into_image(filenames, batch_size, width, height, img_dir):
     
     empty_x = []
     rot_value = random.randint(-20,20)
@@ -20,7 +20,7 @@ def turn_filename_into_image(filenames, batch_size, width, height):
     flip_ud = bool(random.getrandbits(1))
     
     for name in filenames:
-        image_x = img_to_array(load_img('../../../data/colornet/images/Train/' + name, target_size=(width, height)))
+        image_x = img_to_array(load_img(img_dir + name, target_size=(width, height)))
         image_x = np.array(image_x, dtype='float32')
         image_x = (1.0/(255./2))*image_x - 1
      
@@ -45,18 +45,18 @@ def random_image_index(dataset_len, batchsize):
     end = start + batchsize
     return start, end
 
-def generate_training_images(filenames, batch_size, dataset_len, width, height):
+def generate_training_images(filenames, batch_size, dataset_len, width, height, img_dir):
     
     start, end = random_image_index(dataset_len, batch_size)
     names = filenames[start:end]
-    x, y = turn_filename_into_image(names, batch_size, width, height)
+    x, y = turn_filename_into_image(names, batch_size, width, height, img_dir)
     x_and_y = np.concatenate([x, y], axis=-1)
     
     return x, y, x_and_y
 
-def generator(X, batch_size, dataset_len, width, height):
+def generator(X, img_dir, batch_size, dataset_len, width, height):
     while True:
-        x, y, x_and_y = generate_training_images(X, batch_size, dataset_len, width, height)
+        x, y, x_and_y = generate_training_images(X, batch_size, dataset_len, width, height, img_dir)
         yield x, y, x_and_y
 
 def generate_label_data(batch_size, output_size_pred, output_size_features):
