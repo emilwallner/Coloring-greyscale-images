@@ -8,7 +8,9 @@ The network is built in four parts and gradually becomes more complex. The first
 
 For the second stage, the Beta version, I start automating the training flow. In the full version, I add features from a pre-trained classifier. The GAN version is not covered in the tutorial. It's an experimental version using some of the emerging best practices in image colorization.
 
-**Note:** The display images below are cherry-picked. A large majority of the images are mostly black and white or are lightly colored in brown. A narrow and simple dataset often creates better results. 
+### 🍿 [Featured by Google >>>](https://www.youtube.com/watch?v=xKPk7tG2upc)
+
+**Note:** The display images below are cherry-picked. A large majority of the images are mostly black and white or are lightly colored in brown. A narrow and simple dataset often creates better results.
 
 ## Installation 
 
