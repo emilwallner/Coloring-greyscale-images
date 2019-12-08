@@ -2,7 +2,7 @@
 
 ---
 
-**A detailed tutorial covering the code in this repository:** [Coloring Black and White photos with Neural Networks](https://medium.com/@emilwallner/colorize-b-w-photos-with-a-100-line-neural-network-53d9b4449f8d)
+**A detailed tutorial covering the code in this repository:** [Coloring Black and White photos with Neural Networks](https://blog.floydhub.com/colorizing-b-w-photos-with-neural-networks/)
 
 The network is built in four parts and gradually becomes more complex. The first part is the bare minimum to understand the core parts of the network. It's built to color one image. Once I have something to experiment with, I find it easier to add the remaining 80% of the network. 
 
