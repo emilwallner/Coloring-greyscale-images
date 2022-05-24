@@ -4,7 +4,7 @@
 
 **A detailed tutorial covering the code in this repository:** [Coloring Black and White photos with Neural Networks](https://emilwallner.medium.com/colorize-b-w-photos-with-a-100-line-neural-network-53d9b4449f8d)
 
-**Plug:** I write about learning Machine learning online and independent research 👉 [Enjoy!](https://www.emilwallner.com/)
+**Plug:** 👉 Check out my 60-page guide, [No ML Degree](https://www.emilwallner.com/), on how to land a machine learning job without a degree.
 
 The network is built in four parts and gradually becomes more complex. The first part is the bare minimum to understand the core parts of the network. It's built to color one image. Once I have something to experiment with, I find it easier to add the remaining 80% of the network. 
 
